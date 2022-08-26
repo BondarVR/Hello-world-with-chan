@@ -19,6 +19,11 @@ func gracefulShutdown() {
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
 
+	fmt.Println("Graceful shutdown program, it will run for 10 seconds.")
+	fmt.Println("It can be completed with ctrl + C. Upon successful completion, it will display")
+	fmt.Println("\"Goodbye world\". If you close the program forcibly the program will display")
+	fmt.Println("\"Stopped by the user after x seconds\"")
+
 	fmt.Println("Hello World")
 
 	select {
